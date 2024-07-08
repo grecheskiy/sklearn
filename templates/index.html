@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #EEE8F3; /* Лавандовый фон */
+            background-color: #B2DFDB;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -14,15 +14,15 @@
             flex-direction: column;
         }
         canvas {
-            border: 1px solid #000;
+            border: 1px solid white;
             background-color: #000;
         }
         #clearBtn, #predictBtn {
             margin-top: 20px;
             padding: 10px;
-            border: none;
-            background-color: #957DAD; /* Лавандовая кнопка */
-            color: white;
+            border: 1px solid #000;
+            background-color: #B2DFDB;
+            color: #000;
             font-size: 16px;
             cursor: pointer;
         }
@@ -31,7 +31,7 @@
 <body>
     <canvas id="canvas" width="280" height="280"></canvas>
     <button id="clearBtn">Очистить</button>
-    <button id="predictBtn">Что это за цифра?</button>
+    <button id="predictBtn">Определить</button>
     <p id="prediction"></p>
 
     <script>
@@ -85,7 +85,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('prediction').innerText = 'Предсказание: ' + data.digit;
+                    document.getElementById('prediction').innerText = 'Распознано: ' + data.digit;
                 })
                 .catch(error => {
                     console.error('Ошибка:', error);
